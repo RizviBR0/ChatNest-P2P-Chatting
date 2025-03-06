@@ -23,7 +23,6 @@ A responsive, real-time chat web application built using React.js, Firebase Auth
 Follow these simple steps to set up the project:
 
 1. **Clone the Repository**:
-2. [https://github.com/RizviBR0/ChatNest-P2P-Chatting.git](https://github.com/RizviBR0/ChatNest-P2P-Chatting.git)
 
 ```bash
 git clone https://github.com/your-username/ChatNest-P2P-Chatting.git
