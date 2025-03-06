@@ -1,0 +1,29 @@
+// Firestore rules - Copy these to your Firebase console
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection rules
+    match /users/{userId} {
+      // Users can read the list of all users
+      allow read: if request.auth != null;
+      // Users can only write to their own document
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Chats collection rules
+    match /chats/{chatId} {
+      // Users can read and write to chats they are part of
+      // chatId format is "uid1_uid2"
+      allow read, write: if request.auth != null && 
+        (chatId.split("_")[0] == request.auth.uid || chatId.split("_")[1] == request.auth.uid);
+      
+      // Messages subcollection rules
+      match /messages/{messageId} {
+        // Users can read and write messages in chats they are part of
+        allow read, write: if request.auth != null && 
+          (chatId.split("_")[0] == request.auth.uid || chatId.split("_")[1] == request.auth.uid);
+      }
+    }
+  }
+}
