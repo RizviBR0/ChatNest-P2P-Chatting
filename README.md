@@ -25,7 +25,7 @@ Follow these simple steps to set up the project:
 1. **Clone the Repository**:
 
 ```bash
-git clone https://github.com/your-username/ChatNest-P2P-Chatting.git
+git clone https://github.com/RizviBR0/ChatNest-P2P-Chatting.git
 ```
 
 2. **Install Dependencies**:
